@@ -5,7 +5,9 @@
   --rule: #e6e3dc;
   --card: #f3f1ea;
   --accent: #1f6f5c;
-  --max-width: 56rem;
+  --max-width: 42rem;
+  --wide-width: 60rem;
+  --pad: 1.5rem;
   --serif: "Iowan Old Style", "Charter", "Georgia", serif;
   --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
   --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
@@ -39,7 +41,14 @@ body {
 main {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 4rem 1.5rem 6rem;
+  padding: 4rem var(--pad) 6rem;
+}
+
+/* break out of the narrow prose column, capped at --wide-width */
+.repo-grid,
+.mermaid {
+  width: min(100vw - 2 * var(--pad), var(--wide-width));
+  margin-left: calc(50% - min(100vw - 2 * var(--pad), var(--wide-width)) / 2);
 }
 
 a {
