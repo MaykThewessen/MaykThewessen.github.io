@@ -1,0 +1,143 @@
+:root {
+  --bg: #fafaf7;
+  --fg: #1a1a1a;
+  --muted: #5a5a5a;
+  --rule: #e6e3dc;
+  --accent: #1f6f5c;
+  --max-width: 38rem;
+  --serif: "Iowan Old Style", "Charter", "Georgia", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14140f;
+    --fg: #ececec;
+    --muted: #9a9a92;
+    --rule: #2a2a23;
+    --accent: #6fb89f;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+h1, h2, h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin: 3rem 0 1rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 0 0 0.4rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--fg);
+}
+
+.intro .tagline {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+}
+
+section {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule);
+  margin-top: 2.5rem;
+}
+
+.intro {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.project {
+  margin: 1.5rem 0 2rem;
+}
+.project p {
+  color: var(--muted);
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.links li {
+  padding: 0.35rem 0;
+  color: var(--muted);
+}
+.links li a {
+  color: var(--fg);
+  border-bottom-color: var(--rule);
+}
+.links li a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+footer a {
+  color: var(--muted);
+  border-bottom-color: var(--rule);
+}
+
+@media (max-width: 480px) {
+  main { padding: 2.5rem 1.25rem 4rem; }
+  h1 { font-size: 1.6rem; }
+}

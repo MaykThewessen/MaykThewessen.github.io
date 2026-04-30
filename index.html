@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mayk Thewessen — electricity markets, BESS, machine learning</title>
+  <meta name="description" content="Mayk Thewessen — electricity markets, battery energy storage, and machine learning. Amsterdam. Birdview Energy." />
+  <meta name="author" content="Mayk Thewessen" />
+
+  <meta property="og:title" content="Mayk Thewessen" />
+  <meta property="og:description" content="Electricity markets, BESS, and machine learning. Amsterdam." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://maykthewessen.github.io/" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>" />
+</head>
+<body>
+  <main>
+
+    <header class="intro">
+      <h1>Mayk Thewessen</h1>
+      <p class="tagline">
+        Electricity markets, battery energy storage, and machine learning.
+        Based in Amsterdam, working on the Dutch power system at
+        <a href="https://birdviewenergy.com">Birdview Energy</a>.
+      </p>
+    </header>
+
+    <section class="about">
+      <h2>What I work on</h2>
+      <p>
+        I build models and tooling for the Dutch electricity grid: forward
+        price curves, BESS dispatch and revenue stacking, scenario analysis,
+        and grid power-flow studies. Most of it lives in Python on top of
+        <a href="https://pypsa.org">PyPSA</a>,
+        <a href="https://linopy.readthedocs.io">linopy</a>, and
+        <a href="https://highs.dev">HiGHS</a> — with a custom HiPO build for
+        the heavier scenarios.
+      </p>
+      <p>
+        Day to day that means a lot of TenneT, JAO, ENTSO-E, and Ned.nl data;
+        a lot of optimisation; and a steady stream of small upstream PRs back
+        into the open-source stack I depend on.
+      </p>
+    </section>
+
+    <section class="projects">
+      <h2>Selected projects</h2>
+
+      <article class="project">
+        <h3>Birdcurve</h3>
+        <p>
+          Hourly forward power price curve for NL and neighbouring zones —
+          built from fundamentals (fuel forwards, capacity, renewables
+          generation profiles) and calibrated against the cleared
+          forward market. The curve I use to value BESS revenue across
+          day-ahead, imbalance, and ancillary stacks.
+        </p>
+      </article>
+
+      <article class="project">
+        <h3>BESSview</h3>
+        <p>
+          Analytics and visualisation for battery energy storage — operational
+          telemetry, dispatch traces, revenue attribution by market, and
+          back-tests against alternative bidding strategies.
+        </p>
+      </article>
+
+      <article class="project">
+        <h3>NL grid power flow</h3>
+        <p>
+          PyPSA-Eur–based model of the Dutch high-voltage network,
+          calibrated against TenneT data and used to study congestion,
+          curtailment risk, and connection-point capacity for new BESS and
+          industrial load.
+        </p>
+      </article>
+
+      <article class="project">
+        <h3>Upstream contributions</h3>
+        <p>
+          Small but load-bearing PRs to the optimisation stack —
+          <a href="https://github.com/PyPSA/linopy">linopy</a> (warmstart,
+          benchmarks),
+          <a href="https://github.com/ERGO-Code/HiGHS">HiGHS</a> (HiPO build
+          path), and
+          <a href="https://github.com/PyPSA/pypsa-eur">PyPSA-Eur</a>. The
+          goal is the same: make the tools faster and less surprising for
+          everyone solving the same problems.
+        </p>
+      </article>
+    </section>
+
+    <section class="elsewhere">
+      <h2>Elsewhere</h2>
+      <ul class="links">
+        <li><a href="https://github.com/MaykThewessen">GitHub</a> — code, mostly Python and a lot of energy-system notebooks.</li>
+        <li><a href="https://www.linkedin.com/in/maykthewessen/">LinkedIn</a> — work history and longer-form posts.</li>
+        <li><a href="https://x.com/Mayk_12">X / Twitter</a> — short notes, mostly grid &amp; markets.</li>
+        <li><a href="https://treehouseenergy.nl">treehouseenergy.nl</a> — earlier project, still online.</li>
+        <li><a href="mailto:maykthewessen@gmail.com">maykthewessen@gmail.com</a> — best way to reach me.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>
+        © Mayk Thewessen. Built as a single static page —
+        <a href="https://github.com/MaykThewessen/MaykThewessen.github.io">source on GitHub</a>.
+      </p>
+    </footer>
+
+  </main>
+</body>
+</html>
