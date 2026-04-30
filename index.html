@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mayk Thewessen — electricity markets, BESS, machine learning</title>
-  <meta name="description" content="Mayk Thewessen — electricity markets, battery energy storage, and machine learning. Amsterdam. Birdview Energy." />
+  <meta name="description" content="Mayk Thewessen — time-series simulation and forecasting for the energy transition. Electricity markets, batteries, V2G, flex industry. Amsterdam / Netherlands." />
   <meta name="author" content="Mayk Thewessen" />
 
   <meta property="og:title" content="Mayk Thewessen" />
-  <meta property="og:description" content="Electricity markets, BESS, and machine learning. Amsterdam." />
+  <meta property="og:description" content="Time-series simulation and forecasting for the energy transition. Electricity markets, batteries, V2G, flex industry." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://maykthewessen.github.io/" />
+  <meta property="og:image" content="https://maykthewessen.github.io/assets/img/mayk-thewessen-avatar.jpg" />
 
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>" />
@@ -19,12 +20,29 @@
   <main>
 
     <header class="intro">
-      <h1>Mayk Thewessen</h1>
-      <p class="tagline">
-        Electricity markets, battery energy storage, and machine learning.
-        Based in Amsterdam, working on the Dutch power system at
-        <a href="https://birdviewenergy.ai">Birdview Energy</a>.
-      </p>
+      <div class="intro-row">
+        <img class="avatar"
+             src="assets/img/mayk-thewessen-avatar.jpg"
+             alt="Portrait of Mayk Thewessen"
+             width="140" height="140" />
+        <div class="intro-text">
+          <h1>Mayk Thewessen</h1>
+          <p class="tagline">
+            Time-series simulation and forecasting for the energy transition.
+            Electricity markets, batteries, V2G, flex industry — based in the
+            Netherlands, working at
+            <a href="https://birdviewenergy.ai">Birdview Energy</a> and
+            independently via
+            <a href="https://www.treehouseenergy.nl">Treehouse Energy</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- decorative price-spike sparkline -->
+      <svg class="sparkline" viewBox="0 0 600 60" aria-hidden="true" preserveAspectRatio="none">
+        <polyline points="0,38 25,36 50,40 75,34 100,38 125,30 150,42 175,36 200,32 225,40 250,8 275,52 300,12 325,46 350,28 375,34 400,30 425,38 450,22 475,44 500,32 525,36 550,28 575,38 600,34"
+                  fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>
     </header>
 
     <section class="about">
@@ -43,6 +61,74 @@
         a lot of optimisation; and a steady stream of small upstream PRs back
         into the open-source stack I depend on.
       </p>
+    </section>
+
+    <section class="career">
+      <h2>Career</h2>
+      <ol class="timeline">
+        <li>
+          <span class="t-when">2010 – 2017</span>
+          <span class="t-what">
+            <strong>MSc Electrical Engineering</strong>, Technische Universiteit Eindhoven.
+            Master's thesis on day-ahead price formation in 2030 with high BESS &amp; V2G penetration —
+            <a href="https://github.com/MaykThewessen/V2G-Day-Ahead_2030">code</a> ·
+            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=nl&user=07iloVQAAAAJ&citation_for_view=07iloVQAAAAJ:eQOLeE2rZwMC">scholar</a>.
+          </span>
+        </li>
+        <li>
+          <span class="t-when">2014 – 2015</span>
+          <span class="t-what">
+            <strong>University Racing Eindhoven (URE)</strong> — EV drivetrain design for the formula-student team.
+          </span>
+        </li>
+        <li>
+          <span class="t-when">2017 – 2020</span>
+          <span class="t-what">
+            <strong>Taylor Solar</strong> — PV DC/DC optimiser design.
+          </span>
+        </li>
+        <li>
+          <span class="t-when">2021 – 2023</span>
+          <span class="t-what">
+            <strong>Lightyear</strong> — day-ahead market pricing models for the solar EV.
+          </span>
+        </li>
+        <li>
+          <span class="t-when">2023 – present</span>
+          <span class="t-what">
+            <strong>Treehouse Energy</strong> — independent consulting on energy markets,
+            BESS, grid congestion, and hourly time-series simulation in Python.
+          </span>
+        </li>
+        <li>
+          <span class="t-when">present</span>
+          <span class="t-what">
+            <strong>Birdview Energy</strong> — investment-grade BESS revenue &amp; grid-risk
+            analytics across NL / DE / BE.
+          </span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="pipeline">
+      <h2>How a BESS valuation comes together</h2>
+      <p>
+        Most of my work flows through a pipeline like this — fundamentals
+        feed a forward curve, the curve plus asset specs feed a dispatch
+        optimiser, and the optimiser produces a revenue stack across every
+        market a battery can sit in.
+      </p>
+      <pre class="mermaid">
+flowchart LR
+    A[Fundamentals<br/>fuels · weather · capacity] --> D[Calibrate]
+    B[Asset specs<br/>MW · MWh · efficiency · degradation] --> E[Dispatch optimiser<br/>linopy + HiGHS]
+    C[Grid data<br/>TenneT · JAO · zonal] --> F[Congestion &amp; curtailment]
+    D --> G[Hourly forward curve]
+    G --> E
+    E --> H[Revenue stack:<br/>DA · Intraday · FCR · aFRR · Imbalance]
+    F --> I[Investment-grade report]
+    H --> I
+      </pre>
     </section>
 
     <section class="projects">
@@ -93,6 +179,51 @@
       </article>
     </section>
 
+    <section class="github">
+      <h2>From my GitHub</h2>
+      <p>A handful of public repos — mostly Python, mostly energy data.</p>
+      <div class="repo-grid">
+
+        <a class="repo" href="https://github.com/MaykThewessen/V2G-Day-Ahead_2030">
+          <h3>V2G-Day-Ahead_2030 <span class="stars">★ 10</span></h3>
+          <p>Master thesis: simulating day-ahead price formation in 2030 with large-scale BESS &amp; V2G acting and competing.</p>
+          <span class="lang">MATLAB</span>
+        </a>
+
+        <a class="repo" href="https://github.com/MaykThewessen/Lithuania-BESS-market-analysis">
+          <h3>Lithuania-BESS-market-analysis</h3>
+          <p>Revenue modelling, pipeline saturation analysis, and ENTSO-E data integration for Baltic battery storage.</p>
+          <span class="lang">Python</span>
+        </a>
+
+        <a class="repo" href="https://github.com/MaykThewessen/Retrieve-Entsoe-DA-imb-prices">
+          <h3>Retrieve-Entsoe-DA-imb-prices</h3>
+          <p>ENTSO-E day-ahead and imbalance price retrieval, with auto-naming and 15-min reindexing for downstream BESS work.</p>
+          <span class="lang">Python</span>
+        </a>
+
+        <a class="repo" href="https://github.com/MaykThewessen/Solar-DA-value-EPEX---NED-api">
+          <h3>Solar-DA-value-EPEX-NED</h3>
+          <p>Capture-price analysis for NL solar — EPEX day-ahead joined to Ned.nl generation profiles.</p>
+          <span class="lang">HTML / Python</span>
+        </a>
+
+        <a class="repo" href="https://github.com/MaykThewessen/NL_geo_map">
+          <h3>NL_geo_map</h3>
+          <p>AHN4 height-map viewer for South Limburg with 2D &amp; 3D visualisation.</p>
+          <span class="lang">HTML</span>
+        </a>
+
+        <a class="repo" href="https://github.com/MaykThewessen/HiddenMathOfDecisions">
+          <h3>HiddenMathOfDecisions</h3>
+          <p>Six mental models for everyday decisions, worked through with Python, Excel, and visualisations.</p>
+          <span class="lang">Python</span>
+        </a>
+
+      </div>
+      <p class="more"><a href="https://github.com/MaykThewessen?tab=repositories">All 39 public repos →</a></p>
+    </section>
+
     <section class="elsewhere">
       <h2>Elsewhere</h2>
       <ul class="links">
@@ -100,6 +231,7 @@
         <li><a href="https://www.linkedin.com/in/maykthewessen/">LinkedIn</a> — work history and longer-form posts.</li>
         <li><a href="https://x.com/Mayk_12">X / Twitter</a> — short notes, mostly grid &amp; markets.</li>
         <li><a href="https://www.treehouseenergy.nl">www.TreehouseEnergy.nl</a> — My personal company, still online.</li>
+        <li><a href="mailto:mayk@treehouseenergy.nl">mayk@treehouseenergy.nl</a></li>
       </ul>
     </section>
 
@@ -111,5 +243,19 @@
     </footer>
 
   </main>
+
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+    const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: dark ? "dark" : "neutral",
+      flowchart: { htmlLabels: true, curve: "basis" },
+      themeVariables: {
+        fontFamily: "-apple-system, BlinkMacSystemFont, Inter, sans-serif",
+        fontSize: "14px"
+      }
+    });
+  </script>
 </body>
 </html>
