@@ -1,0 +1,6 @@
+CLAUDE.md
+**/CLAUDE.md
+.DS_Store
+.idea/
+.vscode/
+node_modules/
