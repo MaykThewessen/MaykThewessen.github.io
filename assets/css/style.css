@@ -164,6 +164,56 @@ section {
   margin-top: 2.5rem;
 }
 
+/* per-section accents for the 8 knowledge domains */
+.domain                { --section-accent: var(--accent); }
+.domain.markets        { --section-accent: #2d8771; }  /* teal — grid & markets */
+.domain.fleet          { --section-accent: #c47633; }  /* amber — fuels & fleet */
+.domain.renewables-mod { --section-accent: #c99a2c; }  /* gold — solar & wind */
+.domain.forecast       { --section-accent: #6f63b3; }  /* indigo — ML & forecasting */
+.domain.optim          { --section-accent: #3a72a8; }  /* blue — optimisation */
+.domain.data           { --section-accent: #5a7a85; }  /* slate — data eng */
+.domain.geo            { --section-accent: #5a8c47; }  /* green — geo & topology */
+.domain.matlab         { --section-accent: #c4592c; }  /* MATLAB orange */
+
+@media (prefers-color-scheme: dark) {
+  .domain.markets        { --section-accent: #4ea591; }
+  .domain.fleet          { --section-accent: #d6904f; }
+  .domain.renewables-mod { --section-accent: #e0b449; }
+  .domain.forecast       { --section-accent: #8a7fcf; }
+  .domain.optim          { --section-accent: #5e95cc; }
+  .domain.data           { --section-accent: #7e9aa6; }
+  .domain.geo            { --section-accent: #7eaf68; }
+  .domain.matlab         { --section-accent: #de7848; }
+}
+
+.domain h2 {
+  color: var(--section-accent);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.domain h2::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 2px;
+  background: var(--section-accent);
+  border-radius: 1px;
+}
+.domain .skill-card {
+  border-top: 2px solid var(--section-accent);
+}
+.domain .skill-card:hover {
+  border-color: var(--section-accent);
+  transform: translateY(-1px);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.domain p a {
+  color: var(--section-accent);
+  border-bottom-color: color-mix(in srgb, var(--section-accent) 35%, transparent);
+}
+.domain p a:hover { border-bottom-color: var(--section-accent); }
+
 /* ---- career timeline ---- */
 .timeline {
   list-style: none;
