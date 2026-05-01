@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mayk Thewessen — Power electronics</title>
+  <meta name="description" content="Power electronics work — high-frequency PV DC/DC converters and V2G on-board charger design. SiC / Si MOSFET, ZVS / ZCS, multi-layer PCB design." />
+  <meta name="author" content="Mayk Thewessen" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>" />
+</head>
+<body>
+  <nav class="topnav" aria-label="Primary">
+    <a href="/" class="nav-name">Mayk Thewessen</a>
+    <a href="/">Energy &amp; markets</a>
+    <a href="/power-electronics.html" class="current">Power electronics</a>
+    <a href="/renewables.html">Renewables</a>
+    <a href="/photography.html">Photography</a>
+  </nav>
+  <main>
+
+    <header class="intro">
+      <div class="intro-text">
+        <h1>Power electronics</h1>
+        <p class="tagline">
+          Hard-switched and soft-switched converters for solar and EV
+          drivetrains. Schematic, magnetics, layout, firmware on 8-bit, and
+          enough thermal modelling to keep the smoke inside the device.
+          Background: BSc/MSc Electrical Engineering at TU/e, EV drivetrain
+          work at <a href="https://www.uracing.nl">University Racing
+          Eindhoven</a>, optimiser design at Taylor Solar, and on-board
+          charger research at Lightyear.
+        </p>
+      </div>
+    </header>
+
+    <section class="project">
+      <h2>PV DC/DC optimiser — 350 kHz, 3×120 Wp</h2>
+      <p>
+        A panel-level boost optimiser for residential PV: per-panel MPPT,
+        three modules in series feeding a string inverter, designed to a
+        BOM target of <strong>€3 per 100 Wp</strong>. The cost target was
+        the design constraint — every architectural choice, from switching
+        topology to copper weight, was made against it.
+      </p>
+
+      <dl class="spec-grid">
+        <dt>Topology</dt><dd>Boost (per-panel MPPT)</dd>
+        <dt>Switching frequency</dt><dd>350 kHz</dd>
+        <dt>Input window</dt><dd>0 – 40 V, 0 – 20 A</dd>
+        <dt>Per-module power</dt><dd>3 × 120 Wp</dd>
+        <dt>Switch</dt><dd>Si MOSFET (cost-optimised, no SiC)</dd>
+        <dt>Controller</dt><dd>8-bit MCU, P&amp;O MPPT in firmware</dd>
+        <dt>PCB</dt><dd>4-layer FR4, 70 µm outer / 35 µm inner</dd>
+        <dt>Assembly</dt><dd>SMD only, single-side reflow</dd>
+        <dt>BOM target</dt><dd>€3 / 100 Wp</dd>
+      </dl>
+
+      <p>
+        At 350 kHz the inductor stays small enough for a low-profile
+        ferrite drum and the Si switch stays inside its safe operating
+        area without going to GaN — both line items the cost ceiling
+        wouldn't tolerate. The 70 µm outer copper carries the 20 A input
+        rail without a heavy heatsink; 35 µm inner planes give two clean
+        return paths for the high-di/dt loop. P&amp;O MPPT runs on the
+        8-bit MCU at a few hundred Hz — fine for irradiance dynamics, and
+        cheap.
+      </p>
+      <p>
+        Most of the engineering value sat in the <em>second-order</em>
+        details: gate-loop inductance held under a few nH, Kelvin source
+        on the MOSFET, snubber tuned to the actual measured ringing rather
+        than a calculated one, and a layout that let the production line
+        place the BOM in one pass.
+      </p>
+    </section>
+
+    <section class="project">
+      <h2>V2G on-board charger — 11 kW, 3-phase, ZVS / ZCS</h2>
+      <p>
+        Bidirectional on-board charger architecture for vehicle-to-grid:
+        11 kW three-phase AC interface, soft-switched (zero-voltage and
+        zero-current) to keep efficiency high enough for daily V2G cycling
+        without thermal de-rating. The charger is the link that decides
+        whether the EV can play in the day-ahead and balancing markets at
+        all — every percent of round-trip efficiency lost shows up
+        directly in revenue per cycle.
+      </p>
+
+      <dl class="spec-grid">
+        <dt>Power</dt><dd>11 kW (3-phase, bidirectional)</dd>
+        <dt>Topology</dt><dd>3-phase active rectifier + isolated DAB</dd>
+        <dt>Soft switching</dt><dd>ZVS on primary, ZCS on secondary</dd>
+        <dt>Switches</dt><dd>SiC MOSFETs (1200 V class)</dd>
+        <dt>Galvanic isolation</dt><dd>Medium-frequency transformer</dd>
+        <dt>Direction</dt><dd>G2V &amp; V2G, seamless transition</dd>
+        <dt>Use case</dt><dd>Day-ahead arbitrage, FCR, aFRR (light-vehicle aggregated)</dd>
+      </dl>
+
+      <p>
+        The interesting trade is between switching loss (favours soft
+        switching, high <em>f</em><sub>sw</sub>, smaller magnetics) and
+        conduction loss (favours fewer transistors, lower
+        <em>f</em><sub>sw</sub>, bigger copper). For an OBC that needs to
+        be drivable on the road and economic in V2G, soft switching is
+        the only way to land both: 96 %+ peak efficiency without a
+        liquid-cooled brick.
+      </p>
+      <p>
+        This sits next to my <a href="https://github.com/MaykThewessen/V2G-Day-Ahead_2030">
+        MSc thesis on day-ahead price formation in 2030 with V2G</a> —
+        the same hardware that makes V2G economically interesting only
+        works because you keep the charger thermally relaxed across
+        millions of cycles. Hardware and market view, same problem.
+      </p>
+    </section>
+
+    <section class="project">
+      <h2>EV drivetrain — University Racing Eindhoven</h2>
+      <p>
+        Part-time during the BSc: drivetrain power electronics for the
+        URE student-team electric formula car. Hands-on with motor
+        controllers, traction inverters, battery interface, and the
+        kind of constraints (mass, packaging, vibration, thermal) that
+        a CAD render hides from you.
+      </p>
+    </section>
+
+    <section class="toolbox">
+      <h2>Toolbox</h2>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Schematic &amp; PCB</h3>
+          <ul>
+            <li><b>Altium Designer</b> · production boards</li>
+            <li><b>KiCad</b> · prototypes &amp; one-offs</li>
+            <li><b>Saturn PCB Toolkit</b> · trace / via sizing</li>
+            <li>4-layer FR4 stackups · 35 / 70 µm</li>
+            <li>Controlled-impedance routing</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Simulation</h3>
+          <ul>
+            <li><b>LTspice</b> · loop &amp; switching node behaviour</li>
+            <li><b>PLECS</b> · system-level switched models</li>
+            <li><b>Simulink + Simscape Electrical</b></li>
+            <li><b>PSpice</b> · vendor model checks</li>
+            <li><b>FEMM / Maxwell</b> · magnetics &amp; thermals</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Firmware &amp; control</h3>
+          <ul>
+            <li>8-bit MCUs (PIC / AVR) for cost-driven designs</li>
+            <li>32-bit ARM Cortex-M for OBC-class control</li>
+            <li>Embedded C, peripheral driver design</li>
+            <li>P&amp;O / IncCond MPPT</li>
+            <li>Phase-shift &amp; PSFB modulation</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Lab</h3>
+          <ul>
+            <li>Power analyzer, electronic load, B6 source</li>
+            <li>4-channel scope, current probes (Rogowski + shunt)</li>
+            <li>Thermal imaging on hot-loop</li>
+            <li>EMC pre-compliance, line-impedance stabilisation</li>
+            <li>HALT / thermal cycling for production verification</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        © Mayk Thewessen.
+        <a href="/">Back to home</a> ·
+        <a href="https://github.com/MaykThewessen/MaykThewessen.github.io">source</a>.
+      </p>
+    </footer>
+
+  </main>
+</body>
+</html>

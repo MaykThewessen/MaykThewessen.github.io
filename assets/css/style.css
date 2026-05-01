@@ -44,9 +44,43 @@ main {
   padding: 4rem var(--pad) 6rem;
 }
 
+/* ---- top nav ---- */
+.topnav {
+  width: min(100vw - 2 * var(--pad), var(--wide-width));
+  margin: 0 auto 2rem;
+  padding: 0.6rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--rule);
+}
+.topnav a {
+  color: var(--muted);
+  border-bottom: none;
+  text-transform: uppercase;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+.topnav a:hover { color: var(--accent); }
+.topnav a.current { color: var(--fg); }
+.topnav .nav-name {
+  margin-right: auto;
+  color: var(--fg);
+  text-transform: none;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
 /* break out of the narrow prose column, capped at --wide-width */
 .repo-grid,
-.mermaid {
+.mermaid,
+.gallery,
+.skill-grid,
+.spec-grid {
   width: min(100vw - 2 * var(--pad), var(--wide-width));
   margin-left: calc(50% - min(100vw - 2 * var(--pad), var(--wide-width)) / 2);
 }
@@ -269,6 +303,193 @@ footer a {
   color: var(--muted);
   border-bottom-color: var(--rule);
 }
+
+/* ---- skills / toolbox ---- */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+.skill-card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+}
+.skill-card h3 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+}
+.skill-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--fg);
+}
+.skill-card ul li { color: var(--muted); }
+.skill-card ul li b { color: var(--fg); font-weight: 500; }
+
+/* ---- spec table for hardware pages ---- */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.5rem 2rem;
+  margin: 1rem 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+.spec-grid dt {
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.25rem;
+}
+.spec-grid dd {
+  margin: 0 0 0.5rem;
+  color: var(--fg);
+}
+
+/* ---- gallery ---- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1rem 0.75rem;
+  margin: 1rem 0;
+}
+.gallery a {
+  display: flex;
+  flex-direction: column;
+  border-bottom: none;
+  color: var(--fg);
+}
+.gallery a img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+  background: var(--card);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.gallery a:hover img {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+.gallery .caption {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.45rem;
+  text-align: center;
+}
+.gallery a:hover .caption { color: var(--accent); }
+
+/* category tiles — used when we don't have hostable images */
+.cat-tiles a.cat {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem 1.1rem;
+  border-radius: 4px;
+  border-bottom: none;
+  color: #fff;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cat-tiles a.cat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+}
+.cat-tiles a.cat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+.cat-tiles .cat-label,
+.cat-tiles .cat-sub {
+  position: relative;
+  z-index: 1;
+}
+.cat-tiles .cat-label {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.cat-tiles .cat-sub {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  margin-top: 0.25rem;
+}
+/* per-category palettes — moody, varied, tied loosely to subject */
+.cat-portrait  { background: linear-gradient(135deg, #6b4a3a 0%, #b8896a 50%, #d4ad8c 100%); }
+.cat-aerial    { background: linear-gradient(135deg, #1d3a5f 0%, #3e6f9c 50%, #7fb0d6 100%); }
+.cat-corporate { background: linear-gradient(135deg, #2a3340 0%, #4a5566 50%, #7a8595 100%); }
+.cat-sport     { background: linear-gradient(135deg, #7a2c1e 0%, #c2543a 50%, #e89368 100%); }
+.cat-analogue  { background: linear-gradient(135deg, #3a3528 0%, #6e6249 50%, #b3a47e 100%); }
+.cat-product   { background: linear-gradient(135deg, #2c4a3a 0%, #4f7a64 50%, #88b39c 100%); }
+.gallery .placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 1rem;
+  background: var(--card);
+  border-radius: 4px;
+}
+
+/* ---- influences (research) ---- */
+.influences {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.influence {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+}
+.influence h3 {
+  font-size: 0.95rem;
+  margin: 0 0 0.3rem;
+}
+.influence p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+  line-height: 1.45;
+}
+.influence a { font-size: 0.78rem; }
 
 /* ---- mobile ---- */
 @media (max-width: 560px) {

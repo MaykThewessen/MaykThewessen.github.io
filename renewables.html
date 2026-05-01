@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mayk Thewessen — Renewable energy systems</title>
+  <meta name="description" content="Renewable energy systems design, optimisation, and research — PyPSA-Eur capacity expansion, BESS dispatch, grid congestion, NL energy transition." />
+  <meta name="author" content="Mayk Thewessen" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>" />
+</head>
+<body>
+  <nav class="topnav" aria-label="Primary">
+    <a href="/" class="nav-name">Mayk Thewessen</a>
+    <a href="/">Energy &amp; markets</a>
+    <a href="/power-electronics.html">Power electronics</a>
+    <a href="/renewables.html" class="current">Renewables</a>
+    <a href="/photography.html">Photography</a>
+  </nav>
+  <main>
+
+    <header class="intro">
+      <div class="intro-text">
+        <h1>Renewable energy systems</h1>
+        <p class="tagline">
+          Design, optimisation, and research for the energy transition —
+          mostly the Dutch grid, mostly hourly time-series, mostly in
+          Python on top of the open-source PyPSA stack. Independent work
+          runs through
+          <a href="https://www.treehouseenergy.nl">Treehouse Energy</a>;
+          investment-grade BESS &amp; grid analytics through
+          <a href="https://birdviewenergy.ai">Birdview Energy</a>.
+        </p>
+      </div>
+    </header>
+
+    <section class="about">
+      <h2>What I work on</h2>
+      <p>
+        Three problems, every project, in some combination:
+      </p>
+      <ul>
+        <li>
+          <strong>Capacity &amp; dispatch.</strong> Where should the next
+          GW of solar, wind, and storage land — and how does it operate
+          hour-by-hour against a co-evolving grid? Capacity expansion in
+          PyPSA-Eur, dispatch in linopy + HiGHS, with a custom HiPO
+          build for the heavier scenarios.
+        </li>
+        <li>
+          <strong>Markets.</strong> Forward power-price curves for NL and
+          neighbouring zones, BESS revenue stacking across day-ahead,
+          intraday, FCR, aFRR, and imbalance, and back-testing of
+          alternative bidding strategies. Calibrated against TenneT
+          imbalance, EPEX day-ahead, and the JAO flow-based domain.
+        </li>
+        <li>
+          <strong>Grid.</strong> NL high-voltage power flow, congestion
+          and curtailment under Dutch transmission constraints, and
+          connection-point feasibility for new BESS and industrial load.
+          AC and DC OPF, calibrated against published TenneT data.
+        </li>
+      </ul>
+      <p>
+        Concrete work on
+        <a href="https://www.treehouseenergy.nl">treehouseenergy.nl</a> —
+        BESS feasibility studies, grid-congestion analyses, hourly
+        time-series simulation, and forward curves for asset valuation.
+      </p>
+    </section>
+
+    <section class="pipeline">
+      <h2>Modelling stack</h2>
+      <p>
+        The pieces below are open-source and most of them have small
+        upstream PRs from me — the Dutch transition is not a problem
+        anyone solves with a closed tool.
+      </p>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Energy-system modelling</h3>
+          <ul>
+            <li><b>PyPSA</b> · network &amp; dispatch</li>
+            <li><b>PyPSA-Eur</b> · pan-European reference</li>
+            <li><b>linopy</b> · LP/MIP on xarray</li>
+            <li><b>HiGHS / HiPO</b> · solver</li>
+            <li><b>atlite</b> · weather → CF profiles</li>
+            <li><b>powerplantmatching</b> · fleet</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Weather &amp; resource</h3>
+          <ul>
+            <li><b>ERA5 · ERA5-Land</b> reanalysis</li>
+            <li><b>SARAH-3</b> solar irradiance</li>
+            <li><b>KNMI</b> NL weather stations</li>
+            <li><b>pvlib · windpowerlib</b></li>
+            <li><b>Renewables.ninja</b> · cross-checks</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Grid &amp; geo</h3>
+          <ul>
+            <li><b>OpenStreetMap</b> · transmission topology</li>
+            <li><b>TenneT</b> congestion &amp; imbalance</li>
+            <li><b>JAO</b> flow-based domain</li>
+            <li><b>geopandas · shapely · rasterio</b></li>
+            <li><b>networkx</b> for topology</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Markets &amp; data</h3>
+          <ul>
+            <li><b>ENTSO-E Transparency</b></li>
+            <li><b>Ned.nl</b> · NL solar &amp; wind truth</li>
+            <li><b>EPEX SPOT</b> day-ahead &amp; intraday</li>
+            <li><b>CBS</b> NL statistics</li>
+            <li><b>Vopak / industrial demand</b> overlays</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="influences-section">
+      <h2>Research influences</h2>
+      <p>
+        The methodology here doesn't come from nowhere. The shortlist of
+        researchers I lean on most for energy-system modelling:
+      </p>
+      <div class="influences">
+
+        <div class="influence">
+          <h3>Tom Brown</h3>
+          <p>
+            Lead architect of <a href="https://pypsa.org">PyPSA</a> and
+            PyPSA-Eur — the framework most of my work runs on. Influential
+            on cost-optimal pathways, sector coupling, and open European
+            energy modelling at TU Berlin.
+          </p>
+          <a href="https://nworbmot.org">nworbmot.org</a> ·
+          <a href="https://scholar.google.com/citations?user=hZgKrxoAAAAJ">scholar</a>
+        </div>
+
+        <div class="influence">
+          <h3>Stefan Pfenninger</h3>
+          <p>
+            Renewables.ninja, Calliope, and a long line of papers on how
+            weather variability, transmission, and storage interact in
+            high-renewables systems. The reason "your dispatch model is
+            only as honest as its weather year" is the default assumption.
+          </p>
+          <a href="https://pfenninger.org">pfenninger.org</a> ·
+          <a href="https://www.renewables.ninja/">renewables.ninja</a>
+        </div>
+
+        <div class="influence">
+          <h3>Jesse Jenkins</h3>
+          <p>
+            Princeton ZERO Lab — capacity expansion, the role of "firm
+            clean" generation, and grid build-out as the binding
+            constraint on the energy transition. <em>Net Zero America</em>
+            and the GenX line of work have shaped how I frame
+            transmission and storage trade-offs in NL studies.
+          </p>
+          <a href="https://zero-lab.princeton.edu/">zero-lab.princeton.edu</a> ·
+          <a href="https://netzeroamerica.princeton.edu/">netzeroamerica</a>
+        </div>
+
+        <div class="influence">
+          <h3>Iain Staffell</h3>
+          <p>
+            Co-author on much of the renewables-availability literature
+            (with Pfenninger), and a steady stream of work on storage
+            economics, hydrogen, and the European power system at
+            Imperial.
+          </p>
+          <a href="https://www.imperial.ac.uk/people/i.staffell">imperial profile</a>
+        </div>
+
+        <div class="influence">
+          <h3>Fabian Neumann</h3>
+          <p>
+            PyPSA-Eur core developer alongside Tom Brown — high-resolution
+            European modelling, sector coupling, hydrogen networks. Many
+            of the methods I rely on day-to-day were first published as
+            PyPSA-Eur tutorials and notebooks by Fabian.
+          </p>
+          <a href="https://github.com/fneum">github.com/fneum</a>
+        </div>
+
+        <div class="influence">
+          <h3>Auke Hoekstra</h3>
+          <p>
+            TU/e — EV adoption and energy-transition modelling in the
+            Dutch context. A useful sanity check whenever a
+            top-down NL scenario claims something the on-the-ground
+            adoption curve would not support.
+          </p>
+          <a href="https://research.tue.nl/en/persons/auke-hoekstra">tue.nl profile</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="projects">
+      <h2>Selected pieces</h2>
+
+      <article class="project">
+        <h3>Birdcurve — NL forward power curve</h3>
+        <p>
+          Hourly forward power-price curve for NL and neighbouring
+          zones, built bottom-up from fundamentals (fuel forwards, fleet
+          capacity, weather-driven renewables) and calibrated against
+          the cleared forward market. The reference curve I value BESS
+          revenue against.
+        </p>
+      </article>
+
+      <article class="project">
+        <h3>NL grid power flow</h3>
+        <p>
+          PyPSA-Eur–based model of the Dutch high-voltage network,
+          calibrated against TenneT data. Used to study congestion,
+          curtailment risk under high-renewables scenarios, and
+          connection-point capacity for new BESS and industrial load.
+        </p>
+      </article>
+
+      <article class="project">
+        <h3>Day-ahead price formation in 2030 (MSc thesis)</h3>
+        <p>
+          Simulating day-ahead price formation in 2030 with large-scale
+          BESS and V2G acting and competing — published with
+          <a href="https://github.com/MaykThewessen/V2G-Day-Ahead_2030">code on GitHub</a>
+          and on
+          <a href="https://scholar.google.com/citations?user=07iloVQAAAAJ">Google Scholar</a>.
+        </p>
+      </article>
+
+      <article class="project">
+        <h3>Upstream contributions</h3>
+        <p>
+          Small but load-bearing PRs to the optimisation stack —
+          <a href="https://github.com/PyPSA/linopy">linopy</a>,
+          <a href="https://github.com/ERGO-Code/HiGHS">HiGHS</a>, and
+          <a href="https://github.com/PyPSA/pypsa-eur">PyPSA-Eur</a>.
+          Tools I rely on, made faster and less surprising for everyone
+          else solving the same problems.
+        </p>
+      </article>
+    </section>
+
+    <footer>
+      <p>
+        © Mayk Thewessen.
+        <a href="/">Back to home</a> ·
+        <a href="https://github.com/MaykThewessen/MaykThewessen.github.io">source</a>.
+      </p>
+    </footer>
+
+  </main>
+</body>
+</html>

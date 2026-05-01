@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mayk Thewessen — electricity markets, BESS, machine learning</title>
-  <meta name="description" content="Mayk Thewessen — time-series simulation and forecasting for the energy transition. Electricity markets, batteries, V2G, flex industry. Amsterdam / Netherlands." />
+  <title>Mayk Thewessen — energy markets, power electronics, renewables</title>
+  <meta name="description" content="Mayk Thewessen — time-series simulation and forecasting for the energy transition. Electricity markets, BESS, V2G, power electronics, renewables modelling. Netherlands." />
   <meta name="author" content="Mayk Thewessen" />
 
   <meta property="og:title" content="Mayk Thewessen" />
@@ -17,6 +17,13 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>" />
 </head>
 <body>
+  <nav class="topnav" aria-label="Primary">
+    <a href="/" class="nav-name">Mayk Thewessen</a>
+    <a href="/" class="current">Energy &amp; markets</a>
+    <a href="/power-electronics.html">Power electronics</a>
+    <a href="/renewables.html">Renewables</a>
+    <a href="/photography.html">Photography</a>
+  </nav>
   <main>
 
     <header class="intro">
@@ -61,6 +68,442 @@
         a lot of optimisation; and a steady stream of small upstream PRs back
         into the open-source stack I depend on.
       </p>
+    </section>
+
+    <section class="domain">
+      <h2>Electricity markets</h2>
+      <p>
+        I trade the Dutch market across its full stack — from cleared
+        day-ahead curves down to imbalance settlement at quarter-hour
+        resolution. The work touches every product where a battery, V2G
+        fleet, or flexible industrial load can earn revenue, plus the
+        cross-border flows that determine when those products are
+        binding.
+      </p>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Wholesale</h3>
+          <ul>
+            <li><b>Day-ahead</b> · EPEX SPOT, Nord Pool</li>
+            <li><b>Intraday</b> · continuous &amp; auctions</li>
+            <li><b>ID3 · ID1</b> · index pricing</li>
+            <li><b>Forwards</b> · cleared &amp; OTC curves</li>
+            <li>NL · DE · BE · FR · GB · NO · DK</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Balancing &amp; ancillary</h3>
+          <ul>
+            <li><b>FCR</b> · symmetric, 4-hour blocks</li>
+            <li><b>aFRR capacity</b> · up &amp; down</li>
+            <li><b>aFRR energy</b> · merit-order activation</li>
+            <li><b>mFRR · imbalance</b> settlement</li>
+            <li>TenneT MARI/PICASSO integration</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Cross-border</h3>
+          <ul>
+            <li><b>Flow-based</b> · JAO domain, PTDFs, RAMs</li>
+            <li><b>NTC</b> · legacy bilateral capacity</li>
+            <li><b>Single Day-Ahead Coupling</b> (SDAC)</li>
+            <li><b>XBID</b> · cross-border intraday</li>
+            <li>Import/export profile reconstruction</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Truth sources</h3>
+          <ul>
+            <li><b>ENTSO-E</b> Transparency Platform</li>
+            <li><b>TenneT</b> imbalance, FCR/aFRR</li>
+            <li><b>EPEX SPOT</b> · Nord Pool</li>
+            <li><b>Ned.nl</b> · NL renewables truth</li>
+            <li><b>JAO</b> · flow-based</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="domain">
+      <h2>Generation fleet &amp; commodity fundamentals</h2>
+      <p>
+        Forward power-curve modelling means knowing the fleet — every
+        CCGT and OCGT marginal cost, every renewables capacity factor,
+        every retirement and new-build. Below: the technologies I track
+        and the commodity benchmarks that drive marginal price across
+        the merit order.
+      </p>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Thermal &amp; firm</h3>
+          <ul>
+            <li><b>CCGT · OCGT</b> · gas turbines</li>
+            <li><b>CHP</b> · industrial &amp; district heat</li>
+            <li><b>Coal</b> · hard coal &amp; lignite</li>
+            <li><b>Biomass</b> · co-fired &amp; dedicated</li>
+            <li><b>Nuclear · Oil · Diesel</b> peakers</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Renewables fleet</h3>
+          <ul>
+            <li><b>Solar PV</b> · utility &amp; rooftop</li>
+            <li><b>Onshore wind</b></li>
+            <li><b>Offshore wind</b> · NL North Sea build-out</li>
+            <li><b>Hydro</b> · run-of-river &amp; pumped</li>
+            <li>Curtailment &amp; redispatch tracking</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Storage &amp; flex</h3>
+          <ul>
+            <li><b>Lithium BESS</b> · 1h, 2h, 4h, 8h</li>
+            <li><b>V2G</b> · fleet aggregation</li>
+            <li><b>Electrolysers</b> · alkaline &amp; PEM</li>
+            <li><b>Heat pumps</b> · industrial &amp; district</li>
+            <li>Demand response · industrial flex</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Commodity benchmarks</h3>
+          <ul>
+            <li><b>Gas TTF</b> · NL hub</li>
+            <li><b>Coal API2</b> · ARA delivery</li>
+            <li><b>CO₂ EUA</b> · ETS futures</li>
+            <li><b>Brent · Diesel</b> · oil-linked peakers</li>
+            <li>Fuel-to-power conversion w/ heat rates</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="domain">
+      <h2>Renewables modelling</h2>
+      <p>
+        Hourly capacity factors built bottom-up from reanalysis weather
+        and panel/turbine specs — never trust a published CF, build it
+        yourself. Calibrated against
+        <a href="https://www.ned.nl">Ned.nl</a> for NL solar and wind
+        (the truth source) and ENTSO-E for the rest of Europe.
+      </p>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Solar PV</h3>
+          <ul>
+            <li><b>PVGIS</b> · panel-level CF</li>
+            <li><b>pvlib</b> · physical model chain</li>
+            <li><b>atlite</b> · gridded CF profiles</li>
+            <li>Tilt, azimuth, soiling, snow</li>
+            <li>Inverter clipping &amp; DC/AC ratio</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Wind</h3>
+          <ul>
+            <li><b>atlite</b> · ERA5 → CF</li>
+            <li><b>windpowerlib</b> · power curves</li>
+            <li>Hub-height extrapolation (log law)</li>
+            <li>Wake losses &amp; availability</li>
+            <li>Onshore vs offshore turbine classes</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Weather datasets</h3>
+          <ul>
+            <li><b>ERA5</b> · ECMWF reanalysis</li>
+            <li><b>ERA5-Land</b> · 9 km surface</li>
+            <li><b>SARAH-3</b> · solar irradiance</li>
+            <li><b>MERRA-2</b> · NASA reanalysis</li>
+            <li><b>KNMI</b> · NL weather stations</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Cross-checks</h3>
+          <ul>
+            <li><b>Renewables.ninja</b> · Pfenninger &amp; Staffell</li>
+            <li><b>Ned.nl</b> · NL realised generation</li>
+            <li><b>ENTSO-E</b> · per-zone CFs</li>
+            <li>IEA PVPS performance ratios</li>
+            <li>Project-level monitoring data</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="domain">
+      <h2>Time-series &amp; forecasting</h2>
+      <p>
+        Imbalance prices, intraday spreads, and renewables shortfalls —
+        short-horizon forecasting that has to run live, recalibrate
+        daily, and survive distribution shifts. Tree-based regressors do
+        most of the work; deep models earn their keep on longer horizons
+        and when the feature space is genuinely high-dimensional.
+      </p>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Tree boosting</h3>
+          <ul>
+            <li><b>XGBoost</b> · default for tabular</li>
+            <li><b>LightGBM</b> · fast on wide features</li>
+            <li><b>CatBoost</b> · categorical-heavy markets</li>
+            <li>Quantile regression for prediction intervals</li>
+            <li>SHAP values for diagnostics</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Classical &amp; statistical</h3>
+          <ul>
+            <li><b>statsmodels</b> · SARIMAX, VAR</li>
+            <li><b>Prophet</b> · seasonal baselines</li>
+            <li>Exponential smoothing · Holt-Winters</li>
+            <li>Kalman filters · state-space</li>
+            <li>Ridge / Lasso for stable benchmarks</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Feature engineering</h3>
+          <ul>
+            <li>Lag · rolling · expanding windows</li>
+            <li>Calendar (DST · holidays · DoW · Settlement)</li>
+            <li>Weather (T · GHI · wind speed at 10/100m)</li>
+            <li>Market structure (residual load · merit order)</li>
+            <li>Cross-zone spreads &amp; flow-based shadow prices</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Deep &amp; validation</h3>
+          <ul>
+            <li><b>PyTorch · Lightning</b></li>
+            <li>Temporal Fusion Transformer · N-BEATS</li>
+            <li>Walk-forward / time-series CV</li>
+            <li>Conformal prediction intervals</li>
+            <li>Backtests against realised settlement</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="domain">
+      <h2>Optimisation &amp; energy systems</h2>
+      <p>
+        Capacity expansion, dispatch, and BESS revenue stacking — all
+        linear or mixed-integer, all on the open-source
+        <a href="https://pypsa.org">PyPSA</a> stack. HiGHS with HiPO for
+        the heavier scenarios; small upstream PRs back into linopy and
+        HiGHS when something blocks a real run.
+      </p>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Energy-system modelling</h3>
+          <ul>
+            <li><b>PyPSA</b> · network &amp; dispatch</li>
+            <li><b>PyPSA-Eur</b> · pan-European reference</li>
+            <li><b>linopy</b> · LP/MIP on xarray</li>
+            <li><b>powerplantmatching</b> · fleet datasets</li>
+            <li>Custom NL high-voltage power-flow models</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Solvers</h3>
+          <ul>
+            <li><b>HiGHS</b> · default, open-source</li>
+            <li><b>HiPO</b> · custom build for hard scenarios</li>
+            <li><b>Gurobi · CPLEX</b> · when licensed</li>
+            <li><b>SCIP</b> · MIP fallback</li>
+            <li><b>YALMIP</b> · MATLAB modelling layer</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>BESS dispatch</h3>
+          <ul>
+            <li>Multi-market revenue stacking</li>
+            <li>SoC-aware perfect-foresight LP</li>
+            <li>Rolling-horizon receding-horizon dispatch</li>
+            <li>Stochastic / scenario-based bidding</li>
+            <li>Degradation-aware throughput penalties</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Grid &amp; network</h3>
+          <ul>
+            <li>AC &amp; DC OPF</li>
+            <li>N-1 contingency analysis</li>
+            <li>Congestion &amp; redispatch modelling</li>
+            <li>Connection-point feasibility studies</li>
+            <li>JAO flow-based capacity reconstruction</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="domain">
+      <h2>Data engineering &amp; ML stack</h2>
+      <p>
+        Datasets that don't fit in memory and queries that have to run
+        on a laptop and a cluster. Columnar formats are non-negotiable;
+        pandas where the API matters, polars where the throughput does,
+        DuckDB for everything in between.
+      </p>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>DataFrames &amp; arrays</h3>
+          <ul>
+            <li><b>numpy · pandas</b> · the daily driver</li>
+            <li><b>polars</b> · larger-than-memory pipelines</li>
+            <li><b>xarray</b> · gridded / multi-dim</li>
+            <li><b>pyarrow</b> · Arrow-native I/O</li>
+            <li><b>dask</b> · for the rare cluster case</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Storage &amp; databases</h3>
+          <ul>
+            <li><b>DuckDB</b> · OLAP on parquet, in-process</li>
+            <li><b>PostgreSQL</b> · transactional, prod</li>
+            <li><b>SQLite</b> · local truth files</li>
+            <li><b>TimescaleDB</b> · long time-series</li>
+            <li><b>parquet · feather · zarr</b></li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>ML &amp; numerics</h3>
+          <ul>
+            <li><b>scikit-learn</b> · pipelines &amp; baselines</li>
+            <li><b>xgboost · lightgbm · catboost</b></li>
+            <li><b>scipy · statsmodels</b></li>
+            <li><b>pytorch · lightning</b></li>
+            <li>Optuna · Hyperopt for HPO</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Apps &amp; ops</h3>
+          <ul>
+            <li><b>FastAPI · pydantic</b></li>
+            <li><b>Streamlit · Dash</b> · quick dashboards</li>
+            <li><b>Typer · Click</b> · CLIs</li>
+            <li><b>pixi · uv · conda</b> · envs</li>
+            <li><b>pytest · ruff · mypy</b></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="domain">
+      <h2>Geo / GIS &amp; grid topology</h2>
+      <p>
+        Grid models start from geometry — substation coordinates,
+        transmission corridors, land cover, and the gemeente boundaries
+        that determine connection rights. OpenStreetMap is the only
+        open dataset that gets the Dutch HV network roughly right; the
+        rest is calibration.
+      </p>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Vector &amp; raster</h3>
+          <ul>
+            <li><b>geopandas · shapely · pyproj</b></li>
+            <li><b>rasterio · rioxarray</b></li>
+            <li><b>fiona · gdal</b></li>
+            <li>EPSG:28992 (Amersfoort/RD) for NL</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Sources</h3>
+          <ul>
+            <li><b>OSM</b> · transmission &amp; substations</li>
+            <li><b>AHN4</b> · NL elevation</li>
+            <li><b>BAG · BRT</b> · NL administrative</li>
+            <li><b>Copernicus</b> · land cover</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Topology &amp; viz</h3>
+          <ul>
+            <li><b>networkx</b> · graph algorithms</li>
+            <li><b>folium · pydeck · kepler.gl</b></li>
+            <li><b>plotly · matplotlib · cartopy</b></li>
+            <li><b>osmnx</b> · OSM pulls</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="domain">
+      <h2>MATLAB &amp; Simulink</h2>
+      <p>
+        The numerical legacy from TU/e and URE — power-electronics
+        simulation, EV drivetrain modelling, and the original codebase
+        of my MSc thesis. I still reach for it when Simscape Electrical
+        is the right tool, or when a vendor reference model only ships
+        as a Simulink block diagram.
+      </p>
+      <div class="skill-grid">
+
+        <div class="skill-card">
+          <h3>Simulation</h3>
+          <ul>
+            <li><b>Simulink</b> · system-level dynamics</li>
+            <li><b>Simscape Electrical</b> · power circuits</li>
+            <li><b>PLECS</b> · switched converters</li>
+            <li><b>Stateflow</b> · controller logic</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Toolboxes</h3>
+          <ul>
+            <li><b>Optimization Toolbox</b></li>
+            <li><b>YALMIP</b> · LP/MIP modelling</li>
+            <li><b>Statistics &amp; ML Toolbox</b></li>
+            <li><b>Signal Processing Toolbox</b></li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Where I use it</h3>
+          <ul>
+            <li>EV traction &amp; DAB OBC simulation</li>
+            <li>MPPT controller prototyping</li>
+            <li>MSc thesis (V2G day-ahead)</li>
+            <li>URE drivetrain models</li>
+          </ul>
+        </div>
+
+      </div>
     </section>
 
     <section class="career">
@@ -237,7 +680,9 @@ flowchart LR
         <li><a href="https://github.com/MaykThewessen">GitHub</a> — code, mostly Python and a lot of energy-system notebooks.</li>
         <li><a href="https://www.linkedin.com/in/maykthewessen/">LinkedIn</a> — work history and longer-form posts.</li>
         <li><a href="https://x.com/Mayk_12">X / Twitter</a> — short notes, mostly grid &amp; markets.</li>
-        <li><a href="https://www.treehouseenergy.nl">www.TreehouseEnergy.nl</a> — My personal company, still online.</li>
+        <li><a href="https://www.flickr.com/photos/61742418@N02">Flickr · MaykThewessen</a> — photography archive.</li>
+        <li><a href="https://scholar.google.com/citations?user=07iloVQAAAAJ">Google Scholar</a> — publications.</li>
+        <li><a href="https://www.treehouseenergy.nl">www.TreehouseEnergy.nl</a> — independent consulting.</li>
         <li><a href="mailto:mayk@treehouseenergy.nl">mayk@treehouseenergy.nl</a></li>
       </ul>
     </section>
